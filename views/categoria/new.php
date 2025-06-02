@@ -13,6 +13,8 @@
         <div class="mb-3">
             <label for="nome_categoria" class="form-label">Nome da Categoria</label>
             <input type="text" class="form-control" id="nome_categoria" name="nome_categoria" required>
+            <input type="hidden" name="acao" value="inserir">
+
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
