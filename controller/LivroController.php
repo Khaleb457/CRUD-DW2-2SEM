@@ -1,30 +1,59 @@
 <?php
-require_once '../model/LivroModel.php';
+require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../model/LivroModel.php';
 
-$livroModel = new LivroModel();
+$livro = new LivroModel();
 
-$idLivro = $livroModel->inserir($_POST["titulo"], $_POST["autor"], $_POST["descricao"]);
+// INSERIR
+if (isset($_POST['acao']) && $_POST['acao'] === 'inserir') {
+    $titulo = $_POST['titulo'] ?? '';
+    $autor = $_POST['autor'] ?? '';
+    $descricao = $_POST['descricao'] ?? '';
+    $categorias = $_POST['categorias'] ?? [];
 
-if ($idLivro) {
-    $categorias = $_POST["categorias"] ?? []; // array de categorias selecionadas
-
-    $sucessoCategorias = true;
-
-    foreach ($categorias as $idCategoria) {
-        $ok = $livroModel->inserirCategoria($idLivro, $idCategoria);
-        if (!$ok) {
-            $sucessoCategorias = false;
-            break;
+    if (!empty($titulo) && !empty($autor)) {
+        $idLivro = $livro->inserir($titulo, $autor, $descricao);
+        if ($idLivro) {
+            foreach ($categorias as $idCategoria) {
+                $livro->inserirCategoria($idLivro, $idCategoria);
+            }
         }
     }
 
-    if ($sucessoCategorias) {
-        echo "Livro e categorias inseridos com sucesso!";
-    } else {
-        echo "Livro inserido, mas falha ao inserir categorias.";
-    }
-} else {
-    echo "Falha ao inserir o livro.";
+    header("Location: ../views/livro/index.php");
+    exit;
 }
 
-?>
+// EDITAR
+if (isset($_POST['acao']) && $_POST['acao'] === 'editar') {
+    $id = $_POST['id'] ?? null;
+    $titulo = $_POST['titulo'] ?? '';
+    $autor = $_POST['autor'] ?? '';
+    $descricao = $_POST['descricao'] ?? '';
+    $status = $_POST['status'] ?? 'disponivel';
+    $categorias = $_POST['categorias'] ?? [];
+
+    if ($id && !empty($titulo) && !empty($autor)) {
+        $livro->atualizar($id, $titulo, $autor, $descricao, $status);
+
+        // (Opcional: apagar categorias antigas e inserir novas, se necessário)
+        // Simplesmente excluindo tudo e inserindo de novo (para evitar lógica complicada):
+        $livro->removerCategoriasDoLivro($id); // novo método que você pode criar
+        foreach ($categorias as $idCategoria) {
+            $livro->inserirCategoria($id, $idCategoria);
+        }
+    }
+
+    header("Location: ../views/livro/index.php");
+    exit;
+}
+
+// EXCLUIR
+if (isset($_GET['acao']) && $_GET['acao'] === 'excluir') {
+    $id = $_GET['id'] ?? null;
+    if ($id) {
+        $livro->excluir($id);
+    }
+    header("Location: ../views/livro/index.php");
+    exit;
+}

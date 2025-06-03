@@ -1,5 +1,5 @@
 <?php
-require_once '../model/UsuarioModel.php';
+require_once __DIR__ . '/../model/UsuarioModel.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuarioModel = new UsuarioModel();

@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+require_once __DIR__ . '/../config/db.php';
 
 class LivroModel {
     private $pdo;
@@ -29,12 +29,10 @@ class LivroModel {
         return false;
     }
     
-
     public function inserirCategoria($id_livro, $id_categoria) {
         $stmt = $this->pdo->prepare("INSERT INTO livro_categoria (id_livro, id_categoria) VALUES (?, ?)");
         return $stmt->execute([$id_livro, $id_categoria]);
     }
-
 
     public function atualizar($id, $titulo, $autor, $descricao, $status) {
         $stmt = $this->pdo->prepare("UPDATE livro SET titulo = ?, autor = ?, descricao = ?, status = ? WHERE id_livro = ?");
@@ -45,4 +43,30 @@ class LivroModel {
         $stmt = $this->pdo->prepare("DELETE FROM livro WHERE id_livro = ?");
         return $stmt->execute([$id]);
     }
+    
+    public function removerCategoriasDoLivro($id_livro) {
+        $stmt = $this->pdo->prepare("DELETE FROM livro_categoria WHERE id_livro = ?");
+        return $stmt->execute([$id_livro]);
+    }
+
+    public function buscarCategoriasPorLivro($id_livro) {
+        $stmt = $this->pdo->prepare("SELECT id_categoria FROM livro_categoria WHERE id_livro = ?");
+        $stmt->execute([$id_livro]);
+        return array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'id_categoria');
+    }
+
+    public function listarComCategorias() {
+        $sql = "
+            SELECT 
+                l.id_livro, l.titulo, l.autor, l.descricao, l.status,
+                GROUP_CONCAT(c.nome_categoria SEPARATOR ', ') AS categorias
+            FROM livro l
+            LEFT JOIN livro_categoria lc ON l.id_livro = lc.id_livro
+            LEFT JOIN categoria c ON lc.id_categoria = c.id_categoria
+            GROUP BY l.id_livro
+        ";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }

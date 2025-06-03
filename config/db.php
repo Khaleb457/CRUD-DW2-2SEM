@@ -21,3 +21,7 @@ class Database {
         return $this->pdo;
     }
 }
+define('BASE_URL', '/CRUD-DW2-2SEM');
+
+
+?>
