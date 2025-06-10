@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
 
     <div class="container mt-4">
       <h2>Lista de Categorias</h2>
-      <table class="table table-striped">
+      <table class="table table-hover table-custom">
         <thead>
           <tr>
             <th scope="col">ID</th>

@@ -14,8 +14,8 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
     <a href="new.php" class="btn btn-primary mb-3">Cadastrar Novo Livro</a>
 
     <?php if (count($livros) > 0): ?>
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
+        <table class="table table-hover table-custom">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Título</th>

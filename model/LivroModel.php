@@ -68,5 +68,19 @@ class LivroModel {
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function buscarPorCategoria($id_categoria) {
+        $sql = "
+            SELECT l.*
+            FROM livro l
+            INNER JOIN livro_categoria lc ON l.id_livro = lc.id_livro
+            WHERE lc.id_categoria = ?
+            GROUP BY l.id_livro
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_categoria]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     
 }
