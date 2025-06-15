@@ -1,0 +1,117 @@
+/* Comportamento da Navbar */
+
+.navbar {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  padding: 0.75rem 1.5rem;
+  border-bottom: 3px solid var(--accent-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
+  transition: all 0.5s ease;
+}
+
+#mainNavbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
+  background: transparent !important;
+  transition: all 0.5s ease;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Navbar quando scrollada */
+#mainNavbar.scrolled {
+  background: #5a4b3b !important;
+  border-bottom: 3px solid #d8cab3 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+/* Estilos dos itens da navbar */
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--white) !important;
+  font-family: 'Georgia', serif;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: #f5f5f5 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #ffd89c !important;
+}
+
+/* Cores em estado transparente */
+#mainNavbar .navbar-brand,
+#mainNavbar .nav-link {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Cores quando scrollada */
+#mainNavbar.scrolled .navbar-brand,
+#mainNavbar.scrolled .nav-link {
+  color: white !important;
+  text-shadow: none;
+}
+
+/* Hover com navbar scrollada */
+#mainNavbar.scrolled .nav-link:hover {
+  color: #3498db !important;
+}
+
+/* Saudação do usuário */
+.navbar-user-greeting {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--white) !important;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.navbar-user-greeting::before {
+  content: "";
+  position: absolute;
+  left: -0.75rem;
+  height: 60%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsivo para navbar */
+@media (max-width: 992px) {
+  .navbar-user-greeting {
+    margin-right: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+  }
+  
+  .navbar-user-greeting::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+  }
+}

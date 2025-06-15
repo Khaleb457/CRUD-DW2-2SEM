@@ -1,122 +1,319 @@
+/* Variáveis de cores */
+:root {
+  --primary-color: #5a4b3b;
+  --secondary-color: #7e6754;
+  --accent-color: #d8cab3;
+  --text-dark: #3d3326;
+  --text-medium: #5a4b3b;
+  --text-light: #7c6f63;
+  --white: #ffffff;
+  --off-white: #f8f6f4;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Reset e estilos base */
+body {
+  padding-top: 6 !important;
+  margin-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Componente Card */
 .card {
-    border: none;
-    border-radius: 15px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
+
 .card-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
+
 .card-title {
-    color: #3d3326;
-    font-weight: bold;
+  color: var(--text-dark);
+  font-weight: bold;
 }
+
 .card-text {
-    color: #5a4b3b;
-    font-size: 0.95rem;
+  color: var(--text-medium);
+  font-size: 0.95rem;
 }
+
 .card-text.text-muted {
-    color: #7c6f63 !important;
-    font-weight: 500;
-}
-.btn-outline-primary {
-    border-color: #5a4b3b;
-    color: #5a4b3b;
-}
-.btn-outline-primary:hover {
-    background-color: #5a4b3b;
-    color: #fff;
+  color: var(--text-light) !important;
+  font-weight: 500;
 }
 
-/* Navbar personalizada para a Biblioteca */
-
-.navbar {
-    background: linear-gradient(90deg, #5a4b3b, #7e6754);
-    padding: 0.75rem 1.5rem;
-    border-bottom: 3px solid #d8cab3;
+/* Componente Carrossel */
+#mainCarousel {
+  width: 100%;
+  margin-top: -56px;
+  position: relative;
+  z-index: -1;
 }
 
-.navbar .navbar-brand {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #fff !important;
-    font-family: 'Georgia', serif;
-    display: flex;
-    align-items: center;
+.carousel-item {
+  height: 100vh;
+  min-height: 500px;
 }
 
-.navbar .nav-link {
-    color: #f5f5f5 !important;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    padding: 0.5rem 1rem;
+.carousel-item img {
+  filter: brightness(0.8);
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
-.navbar .nav-link:hover {
-    color: #ffd89c !important;
+.carousel-caption {
+  bottom: 30%;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.navbar .btn-outline-light {
-    border-color: #f5f5f5;
-    color: #fff;
+/* Componentes de formulário/auth */
+/* Estilos para página de login (auth) */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--off-white);
+  padding: 2rem 1rem;
 }
 
-.navbar .btn-outline-light:hover {
-    background-color: #f5f5f5;
-    color: #5a4b3b;
+.auth-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+.auth-card-header {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.auth-form-control {
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid var(--accent-color);
+  background-color: var(--off-white);
+  transition: all 0.3s ease;
+}
+
+.auth-form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.15rem rgba(90, 75, 59, 0.25);
+  background-color: var(--white);
+}
+
+.auth-btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  color: var(--white);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.auth-btn-secondary {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  border-radius: 12px;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.auth-btn-secondary:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.auth-alert {
+  font-size: 0.95rem;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  margin-bottom: 1rem;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .navbar .navbar-brand {
-        font-size: 1.3rem;
-    }
-    .navbar .nav-link {
-        padding: 0.5rem 0.75rem;
-    }
+  .carousel-caption {
+    bottom: 20%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-caption .lead {
+    font-size: 1rem;
+  }
+
+  .carousel-item img {
+    height: 50vh !important;
+  }
 }
 
-/* CSS Para tabela */
+@media (max-width: 576px) {
+  .auth-card {
+    margin: 1rem;
+  }
 
-.table-custom {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
-
-.table-custom thead {
-    background-color: #5a4b3b;
-    color: #fff;
-    font-weight: bold;
-}
-
-.table-custom th, 
-.table-custom td {
+  .auth-card-header {
+    font-size: 1.2rem;
     padding: 1rem;
-    vertical-align: middle;
-    color: #3d3326;
-    border-top: 1px solid #e0dcd9;
+  }
+
+  .auth-card-body {
+    padding: 1.5rem;
+  }
 }
 
-.table-custom tbody tr:hover {
-    background-color: #f8f6f4;
-    transition: background-color 0.2s ease-in-out;
+/* Estilos para o footer */
+.footer {
+  background: linear-gradient(135deg, #3a2c20 0%, #1a120b 100%) !important;
+  border-top: 3px solid #d4af37;
+  flex-shrink: 0;
+  width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.table-custom .btn-sm {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.5rem;
+@media (min-width: 1200px) {
+  .footer .row {
+    max-width: 1200px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
+.footer a {
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #d8cab3;
+}
 
+.footer a:hover {
+  color: #d4af37 !important;
+  padding-left: 5px;
+}
 
+.social-icons i {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover i {
+  transform: translateY(-3px);
+  color: #d4af37 !important;
+}
+
+.footer h5 {
+  position: relative;
+  padding-bottom: 10px;
+  color: #d4af37;
+}
+
+.footer h5::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background: #d4af37;
+}
+
+/* Efeitos de transição */
+#bookCards {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+/* Transição suave para o carrossel */
+.initial-section {
+  transition: all 0.5s ease;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Estilização das tabelas */
+.table {
+  font-size: 1rem; /* aumenta o tamanho da fonte */
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 0.75rem 1rem; /* mais espaço interno nas células */
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  font-weight: bold;
+}
+
+.table td {
+  color: var(--text-medium);
+}
