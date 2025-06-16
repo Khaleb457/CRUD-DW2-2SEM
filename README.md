@@ -1,3 +1,4 @@
+<<<<<<< development
 # 🧪 Branch: `development`
 
 Esta branch foi utilizada como **ambiente principal de desenvolvimento** do projeto **Sistema de Gerenciamento de Biblioteca**. Todas as funcionalidades novas, correções e aprimoramentos foram primeiramente implementados e testados aqui antes de serem integrados à branch principal (`main`).
@@ -77,5 +78,3 @@ Embora esta branch tenha finalizado sua função principal de desenvolvimento, e
 ✔️ **Branch congelada**: a branch `development` está agora congelada, com todas as funcionalidades principais testadas e migradas para `main`. Novas features devem ser iniciadas a partir de branches específicas derivadas desta.
 
 ---
-
-
