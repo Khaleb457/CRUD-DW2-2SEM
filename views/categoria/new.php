@@ -4,6 +4,13 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
 
 ?>
 
+<style>
+body {
+  padding-top: 100px;
+} 
+</style>
+
+
 <div class="container mt-5">
     <h1>Cadastrar Categoria</h1>
 

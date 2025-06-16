@@ -10,7 +10,7 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'inserir') {
     if (!empty($nome)) {
         $categoria->inserir($nome);
     }
-    header("Location: ../views/categoria/index.php");
+    header("Location: ../views/categoria/new.php");
     exit;
 }
 

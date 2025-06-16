@@ -15,15 +15,22 @@ $livro = $livroModel->buscarPorId($id);
 $categorias = $categoriaModel->listarTodos();
 $categoriasSelecionadas = $livroModel->buscarCategoriasPorLivro($id); // array com IDs
 
-require_once __DIR__ . '/../../public/partials/header.php' 
+require_once __DIR__ . '/../../public/partials/header.php';
 require_once __DIR__ . '/../../public/partials/navbar.php';
 
 ?>
 
-<div class="container mt-5">
+<style>
+    body {
+  padding-top: 56px;
+}
+</style>
+
+<div class="container mt-5 mb-5">
+    
     <h2>Editar Livro</h2>
 
-    <form action="../../controller/livroController.php" method="POST">
+    <form action="../../controller/livroController.php" method="POST" enctype="multipart/form-data">>
         <input type="hidden" name="acao" value="editar">
         <input type="hidden" name="id" value="<?= htmlspecialchars($livro['id_livro']) ?>">
 
@@ -50,6 +57,16 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
                 <option value="disponivel" <?= $livro['status'] === 'disponivel' ? 'selected' : '' ?>>Disponível</option>
                 <option value="alugado" <?= $livro['status'] === 'alugado' ? 'selected' : '' ?>>Alugado</option>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagem" class="form-label">Imagem do Livro</label>
+            <input type="file" name="imagem" id="imagem" class="form-control">
+
+            <?php if (!empty($livro['imagem'])): ?>
+                <p class="mt-2">Imagem atual:</p>
+                <img src="../../uploads/<?= htmlspecialchars($livro['imagem']) ?>" alt="Imagem atual" class="img-thumbnail" style="max-height: 150px;">
+            <?php endif; ?>
         </div>
 
         <div class="mb-3">

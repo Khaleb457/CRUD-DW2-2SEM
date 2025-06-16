@@ -7,15 +7,21 @@ $pdo = $db->getConnection();
 $categorias = new CategoriaModel();
 $listar = $categorias->listarTodos();
 
-require_once __DIR__ . '/../../public/partials/header.php'
+require_once __DIR__ . '/../../public/partials/header.php';
 require_once __DIR__ . '/../../public/partials/navbar.php';
 
 ?>
 
-<div class="container mt-5">
+<style>
+body {
+  padding-top: 56px;
+}
+</style>
+
+<div class="container mt-5 mb-5">
     <h1>Cadastrar Livro</h1>
 
-    <form method="POST" action="../../controller/LivroController.php">
+    <form method="POST" action="../../controller/LivroController.php" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="titulo" class="form-label">Título</label>
             <input type="text" id="titulo" name="titulo" class="form-control" required>
@@ -29,6 +35,11 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
         <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>
             <textarea id="descricao" name="descricao" class="form-control" rows="3"></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="imagem" class="form-label">Imagem da capa</label>
+            <input type="file" name="imagem" id="imagem" class="form-control">
         </div>
 
         <div class="mb-3">

@@ -11,8 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $usuarioModel->inserir($nome, $email, $senha);
 
     if ($resultado) {
-        echo "Usuário cadastrado com sucesso!";
+        header("Location: ../public/index.php");
     } else {
         echo "Erro ao cadastrar usuário.";
     }
+
+    
 }

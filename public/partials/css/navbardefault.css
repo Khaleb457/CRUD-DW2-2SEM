@@ -1,0 +1,44 @@
+.navbar {
+    background: linear-gradient(90deg, #5a4b3b, #7e6754);
+    padding: 0.75rem 1.5rem;
+    border-bottom: 3px solid #d8cab3;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff !important;
+    font-family: 'Georgia', serif;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    color: #f5f5f5 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+    color: #ffd89c !important;
+}
+
+.navbar .btn-outline-light {
+    border-color: #f5f5f5;
+    color: #fff;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: #f5f5f5;
+    color: #5a4b3b;
+}
+
+@media (max-width: 768px) {
+    .navbar .navbar-brand {
+        font-size: 1.3rem;
+    }
+    .navbar .nav-link {
+        padding: 0.5rem 0.75rem;
+    }
+}
