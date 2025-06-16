@@ -1,4 +1,3 @@
-<<<<<<< development
 # 🧪 Branch: `development`
 
 Esta branch foi utilizada como **ambiente principal de desenvolvimento** do projeto **Sistema de Gerenciamento de Biblioteca**. Todas as funcionalidades novas, correções e aprimoramentos foram primeiramente implementados e testados aqui antes de serem integrados à branch principal (`main`).
