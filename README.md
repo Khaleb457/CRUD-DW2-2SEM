@@ -1,97 +1,62 @@
-# 📚 Sistema de Gerenciamento de Biblioteca
+# 🧪 Branch: `development`
 
-Este projeto é um sistema completo de gerenciamento de uma biblioteca, com funcionalidades para **cadastro, listagem, edição e exclusão de livros, categorias e usuários**, além de um sistema funcional de **login, reserva de livros e visualização de sinopse em tempo real**.
-
-> 🎓 Projeto final da disciplina **Desenvolvimento Web II**, com foco no uso prático de **PHP com PDO**, **padrão MVC**, **Bootstrap 5**, e princípios de **programação orientada a objetos**.
+Esta branch foi utilizada como **ambiente principal de desenvolvimento** do projeto **Sistema de Gerenciamento de Biblioteca**. Todas as funcionalidades novas, correções e aprimoramentos foram primeiramente implementados e testados aqui antes de serem integrados à branch principal (`main`).
 
 ---
 
-## 🚀 Funcionalidades
+## 🚧 Objetivo da Branch
 
-### 📘 Livros
-- Cadastro de livros com título, autor, descrição, status e imagem.
-- Upload e atualização da imagem de capa.
-- Associação com múltiplas categorias (relação N:N).
-- Visualização da sinopse em modal com carregamento assíncrono (AJAX).
-- Edição e exclusão de livros com confirmação.
-- Sistema de reserva de livros por usuários autenticados.
+A branch `development` serviu como um **espaço seguro para desenvolvimento iterativo**, possibilitando:
 
-### 🗂 Categorias
-- Cadastro, edição e exclusão de categorias.
-- Associação com livros.
-- Listagem com design limpo e organizado.
-
-### 👤 Usuários
-- Cadastro de usuários com nome, e-mail e senha.
-- Login e autenticação via sessões.
-- Edição de perfil com atualização de dados.
-- Sessão ativa com identificação do usuário logado.
+- Criação e validação de novas funcionalidades.
+- Execução de **testes manuais e testes unitários**.
+- Validação de regras de negócio e fluxo de navegação.
+- **Refinamento de layout e design responsivo**.
+- Prototipagem de elementos visuais com Bootstrap.
 
 ---
 
-## 🧰 Tecnologias Utilizadas
+## 🧪 Principais Atividades Realizadas
 
-- **PHP (com PDO)**
-- **MySQL**
-- **Bootstrap 5**
-- **HTML5 e CSS3**
-- **JavaScript Vanilla**
-- **Fetch API para AJAX**
-- **Padrão MVC (Model-View-Controller)**
-
----
-
-## 🔐 Autenticação e Sessões
-
-- Sistema de login com sessões seguras.
-- Páginas protegidas que exigem autenticação.
-- Sessão usada para identificar o usuário e exibir dados personalizados (ex: nome, reservas, edição de perfil).
-- Logout seguro com destruição da sessão.
+- 💻 Desenvolvimento completo das interfaces de **livros**, **categorias** e **usuários**.
+- 🔐 Implementação parcial de **autenticação e sessões**, respeitando o padrão de segurança.
+- 🖼️ Integração de modais, botões personalizados e responsividade com **Bootstrap 5**.
+- 🧹 Refatoração contínua de código para manter um padrão limpo e modular (MVC).
+- 📁 Organização da estrutura de pastas para facilitar a manutenção.
+- ✅ Validação de entradas com foco na usabilidade.
 
 ---
 
-## 🗂 Estrutura de Pastas
+## 🎨 Design e Experiência do Usuário
 
-```bash
-📁 projeto/
-│
-├── 📁 config/             # Conexão com o banco de dados (db.php via PDO)
-├── 📁 controller/         # Controladores (LivroController.php, UsuarioController.php etc.)
-├── 📁 model/              # Models com regras de negócio e acesso ao banco
-├── 📁 public/
-│   ├── 📁 uploads/        # Armazena imagens dos livros
-│   └── 📁 partials/       # Componentes reutilizáveis (header, navbar, footer)
-├── 📁 views/
-│   ├── 📁 livro/          # Telas relacionadas aos livros
-│   ├── 📁 categoria/      # Telas de categorias
-│   └── 📁 usuario/        # Telas de login, cadastro e edição de perfil
-└── README.md              # Documentação do projeto
-```
+Durante o desenvolvimento, houve atenção especial à **experiência visual e navegação fluida**, incluindo:
+
+- Layouts consistentes e centralizados com espaçamento adequado.
+- Tabelas estilizadas com ações (Editar, Excluir) organizadas horizontalmente.
+- Feedbacks visuais em ações de sucesso ou erro (alerts e modals).
+- Integração de **ícones e animações sutis** para enriquecer a navegação.
 
 ---
 
-## 🔮 Implementações Futuras
+## 🧪 Testes Realizados
 
-Para continuar evoluindo este projeto, estão previstas as seguintes melhorias e funcionalidades:
+Embora o foco tenha sido a implementação funcional, alguns testes manuais e unitários foram aplicados, como:
 
-- 🔒 **Segurança reforçada**:
-  - Armazenamento de senhas com `password_hash()` e verificação com `password_verify()`.
-  - Proteção contra SQL Injection e CSRF.
+- Testes de persistência no banco via `PDO`.
+- Testes de fluxo de reserva de livros.
+- Testes de edição de perfil com e sem senha.
+- Verificação do carregamento de sinopses via modal (AJAX).
+- Simulação de ações com dados inválidos.
 
-- 📄 **Geração de comprovantes de reserva em PDF**.
-  - Usuário poderá baixar, visualizar ou imprimir um recibo da sua reserva diretamente do site.
+---
 
-- 📦 **Devolução de livros online**:
-  - Implementar um sistema de devolução via site, evitando a necessidade de ida física à biblioteca (com registro de confirmação digital).
+## 🛠️ Tecnologias Utilizadas
 
-- 📧 **Notificações por e-mail**:
-  - Alertas de reserva, confirmação de devolução e prazos de entrega diretamente na caixa de entrada.
-
-- 📊 **Painel administrativo com relatórios**:
-  - Informações detalhadas sobre reservas, livros populares, usuários ativos, entre outros.
-
-- 🌙 **Modo escuro e acessibilidade**:
-  - Modo noturno, contraste aprimorado e melhor compatibilidade com leitores de tela.
+- **PHP (PDO)** — Backend orientado a objetos.
+- **MySQL** — Banco de dados relacional.
+- **HTML5 + Bootstrap 5** — Layout responsivo e moderno.
+- **JavaScript Vanilla** — Ações em tempo real como modais e requisições AJAX.
+- **MVC Simplificado** — Organização clara de responsabilidades no sistema.
 
 ---
 
@@ -109,5 +74,9 @@ Embora esta branch tenha finalizado sua função principal de desenvolvimento, e
 
 ## ✅ Status Atual
 
+✔️ **Branch congelada**: a branch `development` está agora congelada, com todas as funcionalidades principais testadas e migradas para `main`. Novas features devem ser iniciadas a partir de branches específicas derivadas desta.
+
 ---
-Desenvolvido como parte da disciplina de Desenvolvimento Web II – 2024.
+
+📌 **Dica**: use `git checkout -b feature/nome` para criar novas funcionalidades com base nesta estrutura robusta!
+
