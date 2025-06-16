@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha']; // Em produção, utilize password_hash()
+    $senha = $_POST['senha']; 
 
     $resultado = $usuarioModel->inserir($nome, $email, $senha);
 

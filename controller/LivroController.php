@@ -63,7 +63,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'reservar' && isset($_GET['id'
     exit;
 }
 
-// ======= INSERIR LIVRO =======
+
 function salvarImagem($arquivo) {
     if ($arquivo['error'] === 0 && is_uploaded_file($arquivo['tmp_name'])) {
         $nomeFinal = uniqid() . '_' . basename($arquivo['name']);
@@ -79,6 +79,7 @@ function salvarImagem($arquivo) {
     }
     return null;
 }
+
 
 if (isset($_POST['acao']) && $_POST['acao'] === 'inserir') {
     $titulo = $_POST['titulo'] ?? '';
@@ -101,7 +102,7 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'inserir') {
     exit;
 }
 
-// ======= EDITAR LIVRO =======
+
 if ($_POST['acao'] === 'editar') {
     $id = $_POST['id'];
     $titulo = $_POST['titulo'];
@@ -126,7 +127,7 @@ if ($_POST['acao'] === 'editar') {
     exit;
 }
 
-// ======= EXCLUIR LIVRO =======
+
 if (isset($_GET['acao']) && $_GET['acao'] === 'excluir') {
     $id = $_GET['id'] ?? null;
     if ($id) {
