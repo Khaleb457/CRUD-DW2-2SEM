@@ -94,4 +94,4 @@ Para continuar evoluindo este projeto, estão previstas as seguintes melhorias e
   - Modo noturno, contraste aprimorado e melhor compatibilidade com leitores de tela.
 
 ---
-Desenvolvido como parte da disciplina de Desenvolvimento Web II – 2024.
+Desenvolvido como parte da disciplina de Desenvolvimento Web II – 2025.
