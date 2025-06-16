@@ -39,7 +39,7 @@ require_once __DIR__ . '/../public/partials/navbar.php';
       $livros = $livroModel->buscarPorCategoria($categoria['id_categoria']);
       if (count($livros) > 0):
     ?>
-      <h2 class="section-title">📖 <?= htmlspecialchars($categoria['nome_categoria']) ?></h2>
+      <h2 class="section-title">📖 <?= htmlspecialchars(ucwords($categoria['nome_categoria']))   ?></h2>
       <div class="row g-4 mb-5">
         <?php foreach ($livros as $livro): ?>
           <div class="col-md-3">
@@ -52,9 +52,9 @@ require_once __DIR__ . '/../public/partials/navbar.php';
               <?php endif; ?>
 
               <div class="card-body">
-                <h5 class="card-title">📘 <?= htmlspecialchars($livro['titulo']) ?></h5>
-                <p class="card-text"><strong>Autor:</strong> <?= htmlspecialchars($livro['autor']) ?></p>
-                <p class="card-text text-muted">Status: <?= htmlspecialchars($livro['status']) ?></p>
+                <h5 class="card-title">📘 <?= htmlspecialchars(ucwords(strtolower($livro['titulo']))) ?></h5>
+                <p class="card-text"><strong>Autor:</strong> <?= htmlspecialchars(ucfirst(strtolower($livro['autor']))) ?></p>
+                <p class="card-text text-muted">Status: <?= htmlspecialchars(ucfirst(strtolower($livro['status']))) ?></p>
 
                 <button class="btn btn-outline-primary btn-sm btn-sinopse" 
                         data-livro-id="<?= $livro['id_livro'] ?>"
