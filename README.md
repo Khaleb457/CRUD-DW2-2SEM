@@ -94,20 +94,4 @@ Para continuar evoluindo este projeto, estão previstas as seguintes melhorias e
   - Modo noturno, contraste aprimorado e melhor compatibilidade com leitores de tela.
 
 ---
-
-## 🔮 Melhorias Futuras
-
-Embora esta branch tenha finalizado sua função principal de desenvolvimento, ela deixa espaço para testes e melhorias, como:
-
-- 🛡️ Segurança: implementação de hash de senha com `password_hash()` e `password_verify()`.
-- 🔑 Autenticação completa com controle de sessões e níveis de acesso (admin, usuário).
-- 📄 Geração de comprovantes e reservas em **formato PDF**.
-- 🔁 Funcionalidade de **devolução online**, sem necessidade de comparecimento físico.
-- 🧪 Integração futura com bibliotecas de **testes automatizados**.
-
----
-
-## ✅ Status Atual
-
----
 Desenvolvido como parte da disciplina de Desenvolvimento Web II – 2024.
