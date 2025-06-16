@@ -102,7 +102,7 @@ if (isset($_POST['acao']) && $_POST['acao'] === 'inserir') {
 }
 
 // ======= EDITAR LIVRO =======
-if ($_POST['acao'] === 'editar') {
+if (isset($_POST['acao']) && $_POST['acao'] === 'editar') {
     $id = $_POST['id'];
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
@@ -135,3 +135,21 @@ if (isset($_GET['acao']) && $_GET['acao'] === 'excluir') {
     header("Location: ../views/livro/index.php");
     exit;
 }
+
+// ======= DEVOLVER LIVRO =======
+if (isset($_GET['acao']) && $_GET['acao'] === 'devolver' && isset($_GET['id'])) {
+    $idLivro = intval($_GET['id']);
+    // Alterar status para 'disponivel'
+    $success = $livro->atualizarStatus($idLivro, 'disponivel');
+
+    if ($success) {
+        $_SESSION['msg'] = "Livro devolvido com sucesso!";
+    } else {
+        $_SESSION['msg'] = "Falha ao devolver o livro.";
+    }
+
+    header('Location: ../views/livro/index.php');
+    exit;
+}
+
+

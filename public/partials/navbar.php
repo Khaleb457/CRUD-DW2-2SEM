@@ -24,9 +24,6 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= BASE_URL ?>/public">Início</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?= BASE_URL ?>/views/usuario/perfil.php">Meu Perfil</a>
-            </li>
           <?php endif; ?>
         <?php endif; ?>
       </ul>
