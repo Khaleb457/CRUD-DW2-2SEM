@@ -56,25 +56,25 @@ class LivroModel {
         return array_column($stmt->fetchAll(PDO::FETCH_ASSOC), 'id_categoria');
     }
 
-public function listarComCategorias() {
-    $stmt = $this->pdo->query("
-        SELECT 
-            l.id_livro,
-            l.titulo,
-            l.autor,
-            l.descricao,
-            l.status,
-            l.id_usuario_reserva,
-            u.nome AS nome_reserva,
-            GROUP_CONCAT(c.nome_categoria SEPARATOR ', ') AS categorias
-        FROM livro l
-        LEFT JOIN livro_categoria lc ON l.id_livro = lc.id_livro
-        LEFT JOIN categoria c ON lc.id_categoria = c.id_categoria
-        LEFT JOIN usuario u ON l.id_usuario_reserva = u.id_usuario
-        GROUP BY l.id_livro
-    ");
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+    public function listarComCategorias() {
+        $stmt = $this->pdo->query("
+            SELECT 
+                l.id_livro,
+                l.titulo,
+                l.autor,
+                l.descricao,
+                l.status,
+                l.id_usuario_reserva,
+                u.nome AS nome_reserva,
+                GROUP_CONCAT(c.nome_categoria SEPARATOR ', ') AS categorias
+            FROM livro l
+            LEFT JOIN livro_categoria lc ON l.id_livro = lc.id_livro
+            LEFT JOIN categoria c ON lc.id_categoria = c.id_categoria
+            LEFT JOIN usuario u ON l.id_usuario_reserva = u.id_usuario
+            GROUP BY l.id_livro
+        ");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
     public function buscarPorCategoria($id_categoria) {
@@ -107,6 +107,14 @@ public function listarComCategorias() {
         $stmt->execute();
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function atualizarStatus($id, $status) {
+        $sql = "UPDATE livro SET status = :status WHERE id_livro = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
     }
 
 

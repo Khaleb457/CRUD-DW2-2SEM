@@ -51,6 +51,12 @@ body {
                         <div class="d-flex gap-2" role="group">
                             <a href="editar.php?id=<?= $livro['id_livro'] ?>" class="btn  btn-warning px-4 py-2">Editar</a>
                             <a href="excluir.php?id=<?= $livro['id_livro'] ?>" class="btn btn-danger px-4 py-2" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                            <?php if ($livro['status'] === 'reservado'): ?>
+                                <a href="/CRUD-DW2-2SEM/controller/LivroController.php?acao=devolver&id=<?= $livro['id_livro'] ?>" class= "btn btn-success px-4 py-2" 
+                                onclick="return confirm('Deseja realmente devolver este livro?')">Devolver</a>
+                            <?php else: ?>
+                                <button class="btn btn-secondary px-4 py-2" disabled>Disponível</button>
+                            <?php endif; ?>    
                         </div>
                         </td>
                     </tr>
@@ -61,4 +67,5 @@ body {
         <div class="alert alert-info">Nenhum livro cadastrado.</div>
     <?php endif; ?>
 </div>
+
 <?php require_once __DIR__ . '/../../public/partials/footer.php' ?>
