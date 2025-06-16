@@ -14,7 +14,7 @@ require_once __DIR__ . '/../public/partials/navbar.php';
       <img src="/CRUD-DW2-2SEM/public/uploads/banner3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Banner principal da biblioteca">
       <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
         <h1 class="display-3 fw-bold mb-4">Biblioteca Acervo Dourado</h1>
-        <p class="lead d-none d-md-block">Role para baixo para explorar nosso acervo</p>
+        <p class="lead d-none d-md-block">Role para baixo para explorar nossa coleção</p>
         <div class="scroll-indicator mt-5">
           <i class="bi bi-chevron-double-down fs-1 animate-bounce"></i>
         </div>

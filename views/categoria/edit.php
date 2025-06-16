@@ -17,6 +17,12 @@ require_once __DIR__ . '/../../public/partials/navbar.php';
 
 
 ?>
+
+<style>
+  body{
+    padding-top: 100px
+  }
+</style>
   <div class="container mt-5">
     <h2 class="mb-4">Editar Categoria</h2>
 
